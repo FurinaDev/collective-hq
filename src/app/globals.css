@@ -1,0 +1,164 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  /* Crisp Slate Light Mode (Default) */
+  :root, .light {
+    --vx-canvas: #f8fafc;
+    --vx-surface-subtle: #ffffff;
+    --vx-surface-card: #ffffff;
+    --vx-surface-elevated: #ffffff;
+    --vx-surface-hover: #f1f5f9;
+    --vx-surface-active: #e2e8f0;
+
+    --vx-border-subtle: #f1f5f9;
+    --vx-border-default: #e2e8f0;
+    --vx-border-strong: #cbd5e1;
+    --vx-border-glow: rgba(37, 99, 235, 0.25);
+
+    --vx-text-primary: #0f172a;
+    --vx-text-secondary: #475569;
+    --vx-text-tertiary: #94a3b8;
+    --vx-text-disabled: #cbd5e1;
+
+    --vx-brand: #2563eb;
+    --vx-brand-glow: rgba(37, 99, 235, 0.08);
+    --vx-success: #059669;
+    --vx-success-bg: #ecfdf5;
+    --vx-warning: #d97706;
+    --vx-warning-bg: #fffbeb;
+    --vx-danger: #e11d48;
+    --vx-danger-bg: #fff1f2;
+    --vx-accent-purple: #7c3aed;
+
+    /* Legacy compatibility mappings */
+    --canvas-bg: var(--vx-canvas);
+    --card-bg: var(--vx-surface-card);
+    --border-subtle: var(--vx-border-subtle);
+    --border-default: var(--vx-border-default);
+    --text-primary: var(--vx-text-primary);
+    --text-secondary: var(--vx-text-secondary);
+    --text-muted: var(--vx-text-tertiary);
+    --accent: var(--vx-brand);
+  }
+
+  /* Dark Obsidian Theme */
+  :root[data-theme="dark"], .dark {
+    --vx-canvas: #090a0f;
+    --vx-surface-subtle: #0f1118;
+    --vx-surface-card: #141721;
+    --vx-surface-elevated: #1a1e2b;
+    --vx-surface-hover: #222738;
+    --vx-surface-active: #292f44;
+
+    --vx-border-subtle: rgba(255, 255, 255, 0.06);
+    --vx-border-default: rgba(255, 255, 255, 0.10);
+    --vx-border-strong: rgba(255, 255, 255, 0.18);
+    --vx-border-glow: rgba(59, 130, 246, 0.40);
+
+    --vx-text-primary: #f8fafc;
+    --vx-text-secondary: #94a3b8;
+    --vx-text-tertiary: #64748b;
+    --vx-text-disabled: #475569;
+
+    --vx-brand: #3b82f6;
+    --vx-brand-glow: rgba(59, 130, 246, 0.15);
+    --vx-success: #10b981;
+    --vx-success-bg: rgba(16, 185, 129, 0.12);
+    --vx-warning: #f59e0b;
+    --vx-warning-bg: rgba(245, 158, 11, 0.12);
+    --vx-danger: #ef4444;
+    --vx-danger-bg: rgba(239, 68, 68, 0.12);
+    --vx-accent-purple: #8b5cf6;
+
+    /* Legacy compatibility mappings */
+    --canvas-bg: var(--vx-canvas);
+    --card-bg: var(--vx-surface-card);
+    --border-subtle: var(--vx-border-subtle);
+    --border-default: var(--vx-border-default);
+    --text-primary: var(--vx-text-primary);
+    --text-secondary: var(--vx-text-secondary);
+    --text-muted: var(--vx-text-tertiary);
+    --accent: var(--vx-brand);
+  }
+
+  body {
+    background-color: var(--canvas-bg);
+    color: var(--text-primary);
+    letter-spacing: -0.006em;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11", "tnum" 1;
+    font-variant-numeric: tabular-nums;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    letter-spacing: -0.02em;
+  }
+
+  .tabular-nums {
+    font-variant-numeric: tabular-nums;
+    font-feature-settings: "tnum" 1;
+  }
+}
+
+/* Linear & Raycast Custom Scrollbars */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(148, 163, 184, 0.35);
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(100, 116, 139, 0.6);
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.12);
+}
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+/* Animations & Transitions */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.97); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes slideRight {
+  from { transform: translateX(-100%); }
+  to { transform: translateX(0); }
+}
+
+@keyframes pulseSubtle {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.18s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-scale-in {
+  animation: scaleIn 0.16s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-slide-right {
+  animation: slideRight 0.22s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-pulse-subtle {
+  animation: pulseSubtle 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
